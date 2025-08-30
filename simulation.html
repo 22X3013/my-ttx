@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TTX シミュレーション</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">TTX支援システム</div>
+    <div id="stopwatch" class="stopwatch" role="group" aria-label="訓練用ストップウォッチ">
+      <span class="time" aria-live="polite">00:00:00</span>
+      <div class="controls">
+        <button id="sw-start" class="sw-btn" aria-label="スタート">▶</button>
+        <button id="sw-stop"  class="sw-btn" aria-label="一時停止">⏸</button>
+        <button id="sw-reset" class="sw-btn" aria-label="リセット">⏹</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="sim-box reveal">
+    <h1>シナリオシミュレーション</h1>
+    <p>保存されているシナリオの各イベントを順に表示し、議論や判断を進める訓練モードです。開始ボタンで1件目を表示し、次へボタンで順番に進みます。</p>
+
+    <section class="sim-current">
+      <h2>現在のイベント</h2>
+
+      <!-- divにliは入れられない → ulに修正 -->
+      <ul id="current-event" class="timeline">
+        <li>
+          <p class="timeline-date"></p>
+          <div class="timeline-content">
+            <h3>開始ボタンを押して下さい</h3>
+            <p></p>
+          </div>
+        </li>
+      </ul>
+
+      <div class="sim-controls">
+        <button id="sim-start" class="btn cta">開始</button>
+        <button id="sim-prev"  class="btn outline">前へ</button>
+        <button id="sim-next"  class="btn outline">次へ</button>
+        <button id="sim-reset" class="btn outline">リセット</button>
+      </div>
+
+      <div class="sim-progress">
+        <progress id="sim-progress-bar" max="8" value="0" aria-label="進捗"></progress>
+        <span id="sim-counter" class="sim-counter" aria-live="polite">0 / 8</span>
+      </div>
+    </section>
+
+    <section class="reveal">
+      <h2>シナリオ一覧</h2>
+      <ul id="sim-timeline" class="timeline mini-tl" aria-live="polite" aria-busy="true"></ul>
+      <p style="margin-top:12px;"><a class="btn outline" href="index.html">トップへ戻る</a></p>
+    </section>
+  </main>
+
+  <script src="ja/stopwatch.js" defer></script>
+  <script src="ja/simulation.js" defer></script>
+  <script src="ja/animations.js" defer></script>
+</body>
+</html>

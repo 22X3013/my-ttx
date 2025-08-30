@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>南海トラフ地震 TTX</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">TTX支援システム</div>
+    <!-- ストップウォッチ（role付与でARIAエラー解消） -->
+    <div id="stopwatch" class="stopwatch" role="group" aria-label="訓練用ストップウォッチ">
+      <span class="time" aria-live="polite">00:00:00</span>
+      <div class="controls">
+        <button id="sw-start" class="sw-btn" aria-label="スタート">▶</button>
+        <button id="sw-stop"  class="sw-btn" aria-label="一時停止">⏸</button>
+        <button id="sw-reset" class="sw-btn" aria-label="リセット">⏹</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero reveal" aria-labelledby="hero-title">
+      <h1 id="hero-title">南海トラフ地震 TTX訓練</h1>
+      <p class="lead">
+        浜松市が被災、恵那市が広域支援する想定の机上訓練。<br/>
+        このサイトでは <strong>シナリオ表示・発言記録・振り返り</strong> までを一体で支援します。
+      </p>
+      <p><a class="btn btn-lg" href="timeline.html">シナリオタイムラインを見る</a></p>
+      <svg class="wave" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0,64L80,53.3C160,43,320,21,480,37.3C640,53,800,107,960,117.3C1120,128,1280,96,1360,80L1440,64L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z" fill="#e6f4ea"/>
+      </svg>
+    </section>
+
+    <!-- 特徴カード -->
+    <section class="features reveal" aria-labelledby="features-title">
+      <h2 id="features-title">このシステムでできること</h2>
+      <div class="cards">
+        <article class="card">
+          <div class="icon" aria-hidden="true">🧭</div>
+          <h3>タイムライン表示</h3>
+          <p>発災〜受援〜運営支援まで、時系列で状況を俯瞰。</p>
+        </article>
+        <article class="card">
+          <div class="icon" aria-hidden="true">🗣️</div>
+          <h3>発言・判断の記録</h3>
+          <p>議論の要点を記録し、後の振り返りに活用。</p>
+        </article>
+        <article class="card">
+          <div class="icon" aria-hidden="true">📊</div>
+          <h3>振り返りに活きる</h3>
+          <p>何が機能し、どこで詰まったかを見える化。</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- シミュレーション導線 -->
+    <section class="simulation-entry reveal" aria-labelledby="sim-title">
+      <h2 id="sim-title">シナリオシミュレーション</h2>
+      <p>保存されているシナリオを順に提示し、議論や判断のタイミングを計測できます。</p>
+      <p><a class="btn cta" href="simulation.html">シミュレーションを開始</a></p>
+    </section>
+
+    <!-- 参加者：追加/削除フォームは削除、管理ページ導線のみ -->
+    <section class="participants reveal" aria-labelledby="participants-title">
+      <h2 id="participants-title">想定参加者の設計</h2>
+      <p class="hint">参加者の登録・編集・削除は以下の管理ページで行えます。</p>
+      <p><a class="btn outline" href="manage-participants.html">参加者の管理ページへ</a></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <small>© 卒業研究 TTX支援システム</small>
+  </footer>
+
+  <script src="ja/stopwatch.js" defer></script>
+  <script src="ja/animations.js" defer></script>
+</body>
+</html>

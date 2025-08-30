@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>参加者の管理</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">TTX支援システム</div>
+    <div id="stopwatch" class="stopwatch" role="group" aria-label="訓練用ストップウォッチ">
+      <span class="time" aria-live="polite">00:00:00</span>
+      <div class="controls">
+        <button id="sw-start" class="sw-btn" aria-label="スタート">▶</button>
+        <button id="sw-stop"  class="sw-btn" aria-label="一時停止">⏸</button>
+        <button id="sw-reset" class="sw-btn" aria-label="リセット">⏹</button>
+      </div>
+    </div>
+  </header>
+
+  <section aria-labelledby="manage-title" class="reveal">
+    <h1 id="manage-title">参加者の管理</h1>
+    <p>訓練に参加する関係者を登録・編集・削除できます。</p>
+
+    <form id="manage-form">
+      <h2>新しい参加者を追加</h2>
+      <div class="row">
+        <label for="m-org">所属/組織</label>
+        <input id="m-org" type="text" placeholder="所属/組織（例：浜松市 危機管理課）" required />
+      </div>
+      <div class="row">
+        <label for="m-role">役割</label>
+        <input id="m-role" type="text" placeholder="役割（例：指揮・調整）" required />
+      </div>
+      <button type="submit" class="btn">追加</button>
+    </form>
+
+    <h2>参加者一覧</h2>
+    <ul id="manage-list" class="people" aria-live="polite" aria-busy="true" aria-relevant="additions removals"></ul>
+
+    <p style="margin-top: 16px;"><a class="btn outline" href="index.html">トップへ戻る</a></p>
+  </section>
+
+  <script src="ja/stopwatch.js" defer></script>
+  <script src="ja/manage-participants.js" defer></script>
+  <script src="ja/animations.js" defer></script>
+</body>
+</html>

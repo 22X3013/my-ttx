@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>参加者の詳細</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">TTX支援システム</div>
+    <div id="stopwatch" class="stopwatch" role="group" aria-label="訓練用ストップウォッチ">
+      <span class="time" aria-live="polite">00:00:00</span>
+      <div class="controls">
+        <button id="sw-start" class="sw-btn" aria-label="スタート">▶</button>
+        <button id="sw-stop"  class="sw-btn" aria-label="一時停止">⏸</button>
+        <button id="sw-reset" class="sw-btn" aria-label="リセット">⏹</button>
+      </div>
+    </div>
+  </header>
+
+  <section aria-labelledby="title" class="reveal">
+    <h1 id="title">参加者の詳細</h1>
+    <p id="notfound" hidden>参加者が見つかりませんでした。<a href="index.html">一覧へ戻る</a></p>
+
+    <form id="detail-form" hidden>
+      <div class="row">
+        <label for="d-org">所属/組織</label>
+        <input id="d-org" type="text" required />
+      </div>
+      <div class="row">
+        <label for="d-role">役割</label>
+        <input id="d-role" type="text" required />
+      </div>
+
+      <div class="person-actions">
+        <button type="submit" class="btn">保存</button>
+        <button type="button" id="delete-btn" class="btn btn-danger">削除</button>
+        <a class="btn outline" href="index.html">一覧へ戻る</a>
+      </div>
+      <p id="saved" class="notice" hidden>保存しました。</p>
+    </form>
+  </section>
+
+  <script src="ja/stopwatch.js" defer></script>
+  <script src="ja/participant.js" defer></script>
+  <script src="ja/animations.js" defer></script>
+</body>
+</html>

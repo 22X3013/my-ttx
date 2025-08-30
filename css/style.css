@@ -1,0 +1,219 @@
+/* ========= 色・ベース ========= */
+:root{
+    --primary:#3b6aa5;
+    --accent:#6fc173;
+    --border:#e6eaed;
+    --muted:#6a6a6a;
+    /* 追加（カードのガラス風効果に使用） */
+    --card-bg: rgba(255,255,255,0.7);
+    --card-blur: 8px;
+  }
+  *{ box-sizing:border-box; }
+  body{
+    font-family:"Hiragino Kaku Gothic ProN","Meiryo",system-ui,sans-serif;
+    margin:0; padding:20px; color:#333; background:#f7f7f7;
+  }
+  h1{ font-size:1.9rem; margin:0 0 12px; }
+  h2{
+    font-size:1.2rem; margin:28px 0 12px; padding-bottom:6px;
+    border-bottom:2px solid var(--accent);
+  }
+  p{ line-height:1.8; }
+  
+  /* ========= ボタン ========= */
+  .btn{
+    display:inline-block; padding:10px 16px; border-radius:8px;
+    background:var(--primary); color:#fff; text-decoration:none; border:none;
+    cursor:pointer; font-weight:600;
+    transition: transform .15s ease, box-shadow .2s ease, filter .2s ease;
+  }
+  .btn:hover{ filter:brightness(.95); }
+  .btn:focus-visible{ outline:3px solid var(--accent); outline-offset:2px; }
+  .btn.outline{ background:transparent; color:var(--accent); border:2px solid var(--accent); }
+  .btn.btn-lg{ padding:12px 18px; font-size:1.05rem; border-radius:10px; }
+  
+  /* CTA ボタン（メインアクション） */
+  .btn.cta{
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    animation: pulse 2.6s ease-in-out infinite;
+  }
+  @keyframes pulse{
+    0%{ transform: translateZ(0) scale(1); box-shadow: 0 0 0 rgba(63,106,165,0); }
+    50%{ transform: translateZ(0) scale(1.03); box-shadow: 0 8px 18px rgba(63,106,165,.25); }
+    100%{ transform: translateZ(0) scale(1); box-shadow: 0 0 0 rgba(63,106,165,0); }
+  }
+  
+  /* ========= ヘッダ / Hero / カード ========= */
+  .site-header{
+    display:flex; align-items:center; justify-content:space-between;
+    gap:12px; margin-bottom:16px;
+  }
+  .site-header .brand{ font-weight:700; letter-spacing:.02em; }
+  
+  .hero{
+    background:linear-gradient(180deg,#f4fbf6,#ffffff 60%);
+    border:1px solid var(--border); border-radius:16px;
+    padding:28px 20px 0; position:relative; overflow:hidden;
+  }
+  .hero .lead{ margin:10px 0 14px; color:#444; }
+  .hero .wave{ width:100%; height:80px; display:block; margin-top:14px; }
+  
+  .features{ margin-top:28px; }
+  .cards{ display:grid; gap:12px; grid-template-columns:repeat(3,1fr); }
+  .card{
+    background: var(--card-bg);
+    backdrop-filter: blur(var(--card-blur));
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 18px;
+    transition: transform .2s ease, box-shadow .25s ease, background .25s ease;
+  }
+  .card:hover{
+    transform: translateY(-4px) rotateX(1deg);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    background: rgba(255,255,255,0.85);
+  }
+  .card .icon{ font-size:1.4rem; }
+  @media (max-width:720px){ .cards{ grid-template-columns:1fr; } }
+  
+  /* ========= タイムライン ========= */
+  .timeline{ list-style:none; margin:0; padding:0; }
+  .timeline>li{ position:relative; margin:0 0 60px; overflow:hidden; }
+  .timeline-date{ float:left; width:110px; margin-top:10px; font-weight:bold; color:#444; }
+  .timeline-content{
+    margin-left:130px; padding-left:20px; border-left:3px solid #ccc;
+    transition: background 0.3s ease, border-color 0.3s ease;
+  }
+  .timeline-content h3{ margin:0 0 6px; font-size:1.05rem; }
+  .timeline-content p{ margin:0; color:#444; }
+  .timeline-content::before{
+    content:""; position:absolute; left:120px; top:20px;
+    width:12px; height:12px; background:var(--accent); border-radius:50%;
+    transition: transform 0.3s ease;
+  }
+  
+  /* タイムライン要素のホバー効果 */
+  .timeline>li:hover .timeline-content{
+    background: #fcfffc;
+    border-left-color: var(--accent);
+  }
+  .timeline>li:hover .timeline-content::before{ transform: scale(1.15); }
+  
+  @media (max-width:520px){
+    .timeline-date{ float:none; width:auto; margin:0 0 6px; }
+    .timeline-content{ margin-left:0; padding-left:14px; border-left-width:2px; }
+    .timeline-content::before{ left:0; top:8px; }
+  }
+  
+  /* ========= コメント ========= */
+  #comment-form .row{ margin-bottom:8px; }
+  #comment-name,#comment-text{
+    width:100%; border:1px solid #cfd5d8; border-radius:6px; padding:10px;
+    background:#fff; outline:none; line-height:1.4;
+  }
+  #comment-name:focus,#comment-text:focus{ border-color:var(--accent); }
+  .comments{ list-style:none; margin:16px 0 0; padding:0; }
+  .comments li{
+    background:#fff; border:1px solid var(--border); border-radius:8px;
+    padding:10px 12px; margin:10px 0;
+  }
+  .comments .meta{ font-size:.85rem; color:var(--muted); margin-bottom:6px; }
+  
+  /* ========= 参加者（一覧） ========= */
+  .participants{ margin-top:28px; }
+  .people{ list-style:none; margin:12px 0 0; padding:0; display:grid; gap:10px; }
+  .person-link{
+    display:flex; align-items:center; gap:6px; text-decoration:none; color:inherit;
+    background:#fff; border:1px solid var(--border); border-radius:10px; padding:12px 14px;
+    transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .person-link:hover{ background:#f8fbf9; }
+  .person-link:hover{ transform: translateY(-4px); box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
+  .person-link:focus-visible{ outline:3px solid var(--accent); outline-offset:2px; }
+  .person-link .org{ font-weight:700; }
+  .person-link .sep{ color:#8a8a8a; margin:0 4px; }
+  .person-link .role{ color:#444; }
+  .person-link .chevron{ margin-left:auto; font-size:1.2rem; }
+  
+  /* 参加者フォーム（indexは削除済みだが他ページ用に残す） */
+  #participants-form input[type="text"]{ font-size:1rem; padding:12px 14px; min-height:44px; }
+  
+  /* 詳細ページ補助 */
+  .notice{ margin-top:8px; color:#2c6a39; }
+  .btn-danger{ background:#ffeded; color:#a50000; border:1px solid #ffc7c7; }
+  .btn-danger:hover{ filter:brightness(.98); }
+  
+  /* シナリオ追加フォーム */
+  #scenario-form input[type="text"],#scenario-form textarea{
+    width:100%; border:1px solid #cfd5d8; border-radius:8px; padding:12px 14px;
+    font-size:1rem; background:#fff; min-height:44px;
+  }
+  #scenario-form textarea{ min-height:90px; }
+  #scenario-form .row{ margin-bottom:10px; }
+  
+  /* TL 行のアクション */
+  .tl-actions{ margin-top:8px; }
+  .btn-remove{
+    padding:6px 10px; border-radius:8px; border:1px solid #e2e6e9;
+    background:#f8f9fa; color:#444; cursor:pointer;
+  }
+  .btn-remove:hover{ filter:brightness(.96); }
+  .btn-remove:focus-visible{ outline:3px solid var(--accent); outline-offset:2px; }
+  
+  /* ========= ストップウォッチ ========= */
+  .stopwatch{
+    display:flex; align-items:center; gap:10px; background:#fff; border:1px solid var(--border);
+    border-radius:10px; padding:6px 10px; font-family:ui-monospace,Menlo,monospace;
+  }
+  .stopwatch .time{ min-width:78px; text-align:right; font-variant-numeric:tabular-nums; }
+  .sw-btn{
+    border:1px solid #d7dfe3; background:#f6f8f9; border-radius:8px; padding:4px 6px; cursor:pointer;
+  }
+  .sw-btn:hover{ filter:brightness(.96); }
+  
+  /* ========= シミュレーション ========= */
+  .sim-box{ background:#fff; border:1px solid var(--border); border-radius:12px; padding:18px; }
+  .sim-controls{ display:flex; gap:8px; flex-wrap:wrap; margin-bottom: 12px; }
+  /* シミュレーション操作ボタンのホバー効果（outline含む） */
+  .sim-controls .btn:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+  }
+  .sim-progress{ display:flex; align-items:center; gap:10px; margin-top:8px; }
+  .sim-counter{ font-size:.9rem; color:#555; }
+  progress{ width:200px; height:10px; }
+  
+  /* ミニタイムライン（シミュレーション下部） */
+  .mini-tl .timeline-date{ width:90px; }
+  .mini-tl .timeline-content{ margin-left:110px; padding-left:16px; }
+  .mini-tl .timeline-content::before{ left:100px; top:14px; width:10px; height:10px; }
+  .mini-tl li.active .timeline-date{ font-weight:bold; color:var(--primary); }
+  .mini-tl li.active .timeline-content{ border-left-color: var(--primary); }
+  
+  /* その他 */
+  nav{ margin-top:16px; }
+  .sr-only{
+    position:absolute!important; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden;
+    clip:rect(0,0,0,0); white-space:nowrap; border:0;
+  }
+  .site-footer{ margin-top:28px; color:var(--muted); }
+  
+  /* スクロール時のフェードインアニメーション */
+  .reveal{ opacity: 0; transform: translateY(12px); filter: blur(2px); }
+  .reveal.in-view{
+    opacity: 1; transform: none; filter: none;
+    transition: opacity .6s ease, transform .6s ease, filter .6s ease;
+  }
+  
+  /* 低モーション設定 */
+  @media (prefers-reduced-motion:reduce){
+    *{ scroll-behavior:auto; animation:none!important; transition:none!important; }
+    .btn.cta{ animation: none; }
+    .reveal{ opacity:1; transform:none; filter:none; }
+  }
+  .hero p {
+    text-align: center; /* 中央揃えにする */
+  }
+  

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TTX タイムライン</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">TTX支援システム</div>
+    <div id="stopwatch" class="stopwatch" role="group" aria-label="訓練用ストップウォッチ">
+      <span class="time" aria-live="polite">00:00:00</span>
+      <div class="controls">
+        <button id="sw-start" class="sw-btn" aria-label="スタート">▶</button>
+        <button id="sw-stop"  class="sw-btn" aria-label="一時停止">⏸</button>
+        <button id="sw-reset" class="sw-btn" aria-label="リセット">⏹</button>
+      </div>
+    </div>
+  </header>
+
+  <h1>南海トラフ地震 TTX：タイムライン</h1>
+
+  <h2>シナリオタイムライン</h2>
+
+  <form id="scenario-form" aria-describedby="scenario-hint" class="reveal">
+    <div class="row">
+      <label for="s-time" class="sr-only">時刻</label>
+      <input id="s-time" type="text" placeholder="時刻（例：Day1 10:00）" required />
+    </div>
+    <div class="row">
+      <label for="s-title" class="sr-only">タイトル</label>
+      <input id="s-title" type="text" placeholder="タイトル（例：恵那市への支援要請）" required />
+    </div>
+    <div class="row">
+      <label for="s-desc" class="sr-only">説明</label>
+      <textarea id="s-desc" rows="3" placeholder="説明（例：浜松市から広域支援要請が発出される）" required></textarea>
+    </div>
+    <button type="submit" class="btn">シナリオを追加</button>
+    <p id="scenario-hint" class="hint">入力後に Enter でも追加できます。削除は各行のボタンから。</p>
+  </form>
+
+  <ul id="scenario-list" class="timeline" aria-live="polite" aria-busy="true" aria-relevant="additions removals"></ul>
+
+  <h2>意見記録</h2>
+  <form id="comment-form" class="reveal">
+    <div class="row">
+      <label for="comment-name" class="sr-only">名前/役割</label>
+      <input id="comment-name" type="text" placeholder="名前/役割" aria-describedby="name-help" />
+      <small id="name-help" class="sr-only">発言者の役割など（例：ICT担当、避難所リーダー）</small>
+    </div>
+    <div class="row">
+      <label for="comment-text" class="sr-only">発言内容</label>
+      <textarea id="comment-text" rows="4" placeholder="発言内容" required></textarea>
+    </div>
+    <button type="submit" class="btn">送信</button>
+  </form>
+
+  <ul id="comment-list" class="comments reveal" aria-live="polite" aria-busy="true"></ul>
+
+  <p style="margin-top:32px;">
+    <a class="btn outline" href="index.html">トップへ戻る</a>
+  </p>
+
+  <script src="ja/stopwatch.js" defer></script>
+  <script src="ja/timeline.js" defer></script>
+  <script src="ja/animations.js" defer></script>
+  <noscript>※JavaScriptを有効にするとタイムラインが表示されます。</noscript>
+</body>
+</html>
